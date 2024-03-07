@@ -21,12 +21,12 @@ contract SecretCastleTest is Test {
     }
 
     function testUnlockSecretCastle() public {
+        vm.startPrank(heroAddress);
         address shapeshiftingSword;
         // implement your logics here
 
         // With all four gates unlocked, the hero claims the sorcerer's stone
         castle.success(shapeshiftingSword);
-
         vm.stopPrank();
 
         assertEq(sorcererStone.ownerOf(6), heroAddress);
